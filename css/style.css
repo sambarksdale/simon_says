@@ -1,5 +1,39 @@
-.check {
-    height: 100px;
-    width: 100px;
-    background: black;
+.container {
+    margin: auto auto;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+
+.button {
+    height: 190px;
+    width: 190px;
+    border: 5px solid black;
+}
+.button:hover {
+    cursor: pointer;
+}
+
+#B1 {
+    background: green;
+    border-radius: 100% 0 0 0;
+}
+
+
+#B2 {
+    background: red;
+    border-radius: 0 100% 0 0;
+}
+
+#B3 {
+    background:yellow;
+    border-radius: 0 0 0 100%;
+}
+
+#B4 {
+    background: blue;
+    border-radius: 0 0 100% 0;
 }
