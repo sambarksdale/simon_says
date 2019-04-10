@@ -17,23 +17,23 @@
     cursor: pointer;
 }
 
-#B0 {
+#b0 {
     background: green;
     border-radius: 100% 0 0 0;
 }
 
 
-#B1 {
+#b1 {
     background: red;
     border-radius: 0 100% 0 0;
 }
 
-#B2 {
+#b2 {
     background:yellow;
     border-radius: 0 0 0 100%;
 }
 
-#B3 {
+#b3 {
     background: blue;
     border-radius: 0 0 100% 0;
 }
