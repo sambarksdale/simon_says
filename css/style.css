@@ -21,10 +21,18 @@
     background: green;
     border-radius: 100% 0 0 0;
 }
+#c0 {
+    background: white;
+    border-radius: 100% 0 0 0;
+}
 
 
 #b1 {
     background: red;
+    border-radius: 0 100% 0 0;
+}
+#c1 {
+    background: white;
     border-radius: 0 100% 0 0;
 }
 
@@ -32,8 +40,18 @@
     background:yellow;
     border-radius: 0 0 0 100%;
 }
+#c2 {
+    background:white;
+    border-radius: 0 0 0 100%;
+}
 
 #b3 {
     background: blue;
     border-radius: 0 0 100% 0;
 }
+#c3 {
+    background: white;
+    border-radius: 0 0 100% 0;
+}
+
+
