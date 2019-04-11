@@ -1,12 +1,12 @@
 let comp = {
     compArray: [],
-    isTurn: false
+    isTurn: true
     
 }
 
 let player = {
     playerArray: [],
-    isTurn: true,
+    isTurn: false,
     longestSequence: 0,
     checkLongestSequence: function(){
         if(this.playerArray.length > this.longestSequence){
@@ -17,9 +17,8 @@ let player = {
 
 const staticArray = [0,1,2,3]
 let duration = 1000;
-let turnLength = (duration * 1.2) * comp.compArray.length;
-let count = 0;
-let index = 0
+let turnLength = (duration * 1.2) * (comp.compArray.length + 1);
+
 
 //gets random number
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -40,8 +39,11 @@ function addPlayerArrayValue(button){
 //checks playerArray against compArray
 function checkValues(index){
     if(player.playerArray[index] !== comp.compArray[index]){
+        console.log('alert');
         alert('you lose');
         reset();
+    }else {
+        flipTurn();
     }
 }
 
@@ -72,14 +74,18 @@ function playAudio(id){
 //switches turns
 function switchTurns(){
     comp.isTurn = !comp.isTurn;
+    console.log('comp turn ' + comp.isTurn);
     player.isTurn = !player.isTurn;
+    console.log('player turn ' + player.isTurn);
 } 
 
 function compTurn(){
     console.log('comp start');
+
     //adds new value to compArray
     addCompArrayValue()
     console.log('comp'+comp.compArray.length)
+
     //iterates through comArray, lights up button, plays sound
     for(let i = 0; i < comp.compArray.length; i++){
         setTimeout(function(){
@@ -94,40 +100,14 @@ function compTurn(){
     setTimeout(function(){
         switchTurns();
         playerTurn();
-    },turnLength)
+    },turnLength + duration)
      
 }
-
-
-
-
-/*function playerTurn(){
-    $('.button').on('click',function(){
-        addPlayerArrayValue(this);
-        lightUpButton(player.playerArray[player.playerArray.length-1]);
-        playAudio(player.playerArray[player.playerArray.length-1]);
-        setTimeout(function(){
-            checkValues(player.playerArray.length - 1);
-        },duration * 1.1)
-    })
-
-}*/
-
-/*function compTurn(){
-    console.log('comp turn start');
-    let turn = 0
-    addCompArrayValue()
-    console.log('comp array = '+ comp.compArray.length);
-    turn = turn + 1
-    if(turn > 0){
-        console.log('comp turn end');
-        playerTurn();
-    }
-}*/
 
 function flipTurn(){
     if(player.playerArray.length === comp.compArray.length){
         player.playerArray = []
+        switchTurns();
         setTimeout(function(){
             compTurn();
         },duration)
@@ -135,18 +115,15 @@ function flipTurn(){
 }
 
 function playerTurn(){
-    console.log('player turn start')
     $('.button').off().on('click', function(){
-        addPlayerArrayValue(this); 
-        lightUpButton(player.playerArray[player.playerArray.length-1]);
-        playAudio(player.playerArray[player.playerArray.length-1]);  
-        flipTurn();
-    })    
+        if(player.isTurn === true){
+            addPlayerArrayValue(this); 
+            lightUpButton(player.playerArray[player.playerArray.length-1]);
+            playAudio(player.playerArray[player.playerArray.length-1]);
+            checkValues(player.playerArray.length - 1);
+        }    
+    })
 }
-
-
-
-
 
 function playGame(){
     $('#start').on('click',function(){
@@ -159,13 +136,6 @@ $(function(){
     playGame()
 })
 
- /*for(let i = 0; i < comp.compArray.length; i++){
-        setTimeout(function(){
-            lightUpButton(comp.compArray[i]);
-            $('#A0').trigger('play')
-        },i * 600)
-        
-    }*/
 
 
 
