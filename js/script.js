@@ -1,12 +1,12 @@
 let comp = {
-    compArray: [],
+    compArray: [0,1,2,3,3,2,0,1,2,1,0,3,2,2,1,3,0,0],
     isTurn: true
     
 }
 
 let player = {
     playerArray: [],
-    isTurn: false,
+    isTurn: true,
     longestSequence: 0,
     checkLongestSequence: function(){
         if(this.playerArray.length > this.longestSequence){
@@ -16,7 +16,7 @@ let player = {
 }
 
 const staticArray = [0,1,2,3]
-let duration = 1000;
+let duration = 350;
 let turnLength = (duration * 1.2) * (comp.compArray.length + 1);
 
 
@@ -32,7 +32,7 @@ function addCompArrayValue(){
 
 //adds new value to playerArray
 function addPlayerArrayValue(button){
-    player.playerArray.push(Number(button.id.charAt(1)));
+    player.playerArray.push(Number(button.id.substring(button.id.length - 1)));
     console.log(player.playerArray);
 }
 
@@ -43,7 +43,7 @@ function checkValues(index){
         alert('you lose');
         reset();
     }else {
-        flipTurn();
+        flipTurn()
     }
 }
 
@@ -57,18 +57,19 @@ function reset(){
 
 //lights up button
 function lightUpButton(id){
-    //let startColor = $('#b'+id).css('background');
-    //$('#b'+id).css('background','black');
-    $('#b'+id).attr('id','c' + id);
+    $('#light-off-'+id).attr('id','light-on-' + id);
     setTimeout(function(){
-        $('#c'+id).attr('id','b' + id);
-        //$('#b'+id).css('background',startColor)
+        $('#light-on-'+id).attr('id','light-off-' + id);
     },duration) 
 }
 
 //triggers audio
 function playAudio(id){
-        document.getElementById('a' + id).play()
+    let x = $('#a' + id).attr('id');
+    x = Number(x);
+    let audioClone = x.cloneNode(true);
+    audioClone.play()
+    //document.getElementById('a' + id).play();       
 }
 
 //switches turns
@@ -115,14 +116,17 @@ function flipTurn(){
 }
 
 function playerTurn(){
-    $('.button').off().on('click', function(){
-        if(player.isTurn === true){
-            addPlayerArrayValue(this); 
-            lightUpButton(player.playerArray[player.playerArray.length-1]);
-            playAudio(player.playerArray[player.playerArray.length-1]);
-            checkValues(player.playerArray.length - 1);
-        }    
-    })
+    if(player.isTurn === true){
+        $('.button').off().on('click', function(){
+            if(player.isTurn === true){
+                addPlayerArrayValue(this); 
+                lightUpButton(player.playerArray[player.playerArray.length-1]);
+                //playAudio(a0);
+                playAudio(player.playerArray[player.playerArray.length-1]);
+                //checkValues(player.playerArray.length - 1);  
+            }    
+        })
+    } 
 }
 
 function playGame(){
@@ -133,7 +137,7 @@ function playGame(){
 
 
 $(function(){
-    playGame()
+    playerTurn()
 })
 
 

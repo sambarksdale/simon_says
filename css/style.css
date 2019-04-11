@@ -1,56 +1,98 @@
-.container {
+.wrapper{
     margin: auto auto;
-    height: 400px;
-    width: 400px;
+    height: 1000px;
+    width: 1000px; 
+}
+
+.container {
+    position: absolute;
+    height: 800px;
+    width: 800px;
     display: flex;
     flex-wrap: wrap;
-    border: 5px solid black;
+    border: 10px solid rgb(32, 32, 32);
     border-radius: 50%;
 }
 
+.center{
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background: rgb(32, 32, 32);
+    margin-top: 200px;
+    margin-left: 200px;
+    border-radius: 50%;
+}
+
+#start {
+    position: absolute;
+    background: red;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin-top: 220.5px;
+    margin-left: 262.5px;
+    border-radius: 50%;
+    border: none;
+}
+
+#highScore {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    margin-top: 210px;
+    margin-left: 75px;
+    background: rgb(192, 192, 147);
+    border-radius: 5%;
+}
+
 .button {
-    height: 190px;
-    width: 190px;
-    border: 5px solid black;
+    height: 380px;
+    width: 380px;
+    border: 10px solid rgb(32, 32, 32);
 }
 .button:hover {
     cursor: pointer;
 }
 
-#b0 {
+#light-off-0 {
     background: green;
     border-radius: 100% 0 0 0;
 }
-#c0 {
-    background: white;
+
+#light-on-0 {
+    background: radial-gradient(rgba(255,255,255), rgb(5, 252, 5));
     border-radius: 100% 0 0 0;
 }
 
 
-#b1 {
+#light-off-1 {
     background: red;
     border-radius: 0 100% 0 0;
 }
-#c1 {
-    background: white;
+
+#light-on-1 {
+    background: radial-gradient(white, rgb(255, 1, 1));
     border-radius: 0 100% 0 0;
 }
 
-#b2 {
+#light-off-2 {
     background:yellow;
     border-radius: 0 0 0 100%;
 }
-#c2 {
-    background:white;
+
+#light-on-2 {
+    background: radial-gradient(white,yellow);
     border-radius: 0 0 0 100%;
 }
 
-#b3 {
+#light-off-3 {
     background: blue;
     border-radius: 0 0 100% 0;
 }
-#c3 {
-    background: white;
+
+#light-on-3 {
+    background: radial-gradient(white,blue);
     border-radius: 0 0 100% 0;
 }
 
