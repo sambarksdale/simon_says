@@ -1,12 +1,12 @@
 let comp = {
-    compArray: [0,1,2,3,3,2,0,1,2,1,0,3,2,2,1,3,0,0],
+    compArray: [],
     isTurn: true
     
 }
 
 let player = {
     playerArray: [],
-    isTurn: true,
+    isTurn: false,
     longestSequence: 0,
     checkLongestSequence: function(){
         if(this.playerArray.length > this.longestSequence){
@@ -65,9 +65,9 @@ function lightUpButton(id){
 
 //triggers audio
 function playAudio(id){
-    let x = $('#a' + id).attr('id');
-    x = Number(x);
-    let audioClone = x.cloneNode(true);
+    let audio = document.getElementById('a' + id);
+    console.log(audio);
+    let audioClone = audio.cloneNode(true);
     audioClone.play()
     //document.getElementById('a' + id).play();       
 }
@@ -137,7 +137,7 @@ function playGame(){
 
 
 $(function(){
-    playerTurn()
+    playGame();
 })
 
 
