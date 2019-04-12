@@ -11,9 +11,6 @@ function createPlayer(isTurn){
 
 }
 
-
-
-
 let comp = {
     compArray: [],
     isTurn: true
@@ -33,8 +30,8 @@ let player = {
 }
 
 const staticArray = [0,1,2,3]
-let duration = 350;
-let turnLength = (duration * 1.2) * (comp.compArray.length + 1);
+let duration = 800;
+let turnLength = 0;
 
 
 //gets random number
@@ -51,17 +48,17 @@ function addCompArrayValue(){
 //adds new value to playerArray
 function addPlayerArrayValue(button){
     player.playerArray.push(Number(button.id.substring(button.id.length - 1)));
-    console.log(player.playerArray);
 }
 
 //checks playerArray against compArray
 function checkValues(index){
     if(player.playerArray[index] !== comp.compArray[index]){
-        console.log('alert');
-        alert('you lose');
-        reset();
+        setTimeout(function(){
+            alert('you lose');
+            reset();
+        },duration * 1.2)
     }else {
-        flipTurn()
+        endPLayerTurn()
     }
 }
 
@@ -71,6 +68,7 @@ function reset(){
     comp.isTurn = true;
     player.playerArray = [];
     player.isTurn = false;
+    playGame();
 }
 
 //lights up button
@@ -84,31 +82,28 @@ function lightUpButton(id){
 //triggers audio
 function playAudio(id){
     let audio = document.getElementById('a' + id);
-    console.log(audio);
     let audioClone = audio.cloneNode(true);
-    audioClone.play()
-    //document.getElementById('a' + id).play();       
+    audioClone.play()      
 }
 
 //switches turns
 function switchTurns(){
     comp.isTurn = !comp.isTurn;
-    console.log('comp turn ' + comp.isTurn);
     player.isTurn = !player.isTurn;
-    console.log('player turn ' + player.isTurn);
 } 
 
 function compTurn(){
-    console.log('comp start');
-
+    console.log('comp turn start');
     //adds new value to compArray
     addCompArrayValue()
-    console.log('comp'+comp.compArray.length)
+    console.log('duration = ' + duration);
+    console.log('comp array length = ' + comp.compArray.length);  
+    turnLength = duration * comp.compArray.length;
+    console.log('turnlength = ' + turnLength);  
 
     //iterates through comArray, lights up button, plays sound
     for(let i = 0; i < comp.compArray.length; i++){
         setTimeout(function(){
-            console.log(comp.compArray[i]);
             lightUpButton(comp.compArray[i]);
             playAudio(comp.compArray[i]);
         },i * (duration * 1.2))
@@ -119,21 +114,22 @@ function compTurn(){
     setTimeout(function(){
         switchTurns();
         playerTurn();
-    },turnLength + duration)
+    },turnLength + 500)
      
 }
 
-function flipTurn(){
+function endPLayerTurn(){
     if(player.playerArray.length === comp.compArray.length){
         player.playerArray = []
         switchTurns();
         setTimeout(function(){
             compTurn();
-        },duration * 1.2)
+        },duration + 500)
     }
 }
 
 function playerTurn(){
+    console.log('player turn start')
     if(player.isTurn === true){
         $('.button').off().on('click', function(){
             if(player.isTurn === true){
@@ -150,15 +146,13 @@ function playerTurn(){
 function playGame(){
     $('#start').on('click',function(){
         compTurn();
+        $('#start').off()
     })  
 }
 
 
 $(function(){
-    let comp = new createPlayer(true);
-    let player = new createPlayer(false);
-    console.log(comp);
-    console.log(player)
+    playGame();
 })
 
 
