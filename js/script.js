@@ -31,6 +31,7 @@ let player = {
 
 const staticArray = [0,1,2,3]
 let duration = 800;
+let durationFloor = 350;
 let turnLength = 0;
 
 
