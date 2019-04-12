@@ -1,5 +1,5 @@
 function createPlayer(isTurn){
-    this.array = [];
+    this.array = [0,1,2,3,1,1,2,2,3,3,3];
     this.isTurn = isTurn;
     this.longestSequence = 0;
     this. checkLongestSequence = function(){
@@ -12,7 +12,7 @@ function createPlayer(isTurn){
 }
 
 let comp = {
-    compArray: [],
+    compArray: [0,1,2,3,1,1,2,2,3,3,3],
     isTurn: true
     
 }
@@ -114,7 +114,7 @@ function compTurn(){
     setTimeout(function(){
         switchTurns();
         playerTurn();
-    },turnLength + 500)
+    },turnLength)
      
 }
 
@@ -124,7 +124,7 @@ function endPLayerTurn(){
         switchTurns();
         setTimeout(function(){
             compTurn();
-        },duration + 500)
+        },duration + 250)
     }
 }
 
