@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'digital';
+    src: url('digital-7.regular.ttf')
+}
+
 .wrapper{
     margin: auto auto;
     height: 1000px;
@@ -34,9 +39,12 @@
     margin-left: 262.5px;
     border-radius: 50%;
     border: none;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
 }
 
-#highScore {
+#high-score {
     position: absolute;
     width: 75px;
     height: 75px;
@@ -44,6 +52,10 @@
     margin-left: 75px;
     background: rgb(192, 192, 147);
     border-radius: 5%;
+    font-family: 'digital';
+    font-size: 50px;
+    text-align: center;
+    line-height: 75px;
 }
 
 .button {

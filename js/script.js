@@ -1,3 +1,19 @@
+function createPlayer(isTurn){
+    this.array = [];
+    this.isTurn = isTurn;
+    this.longestSequence = 0;
+    this. checkLongestSequence = function(){
+        if(this.playerArray.length > this.longestSequence){
+            this.longestSequence = this.playerArray.length;
+            $('#high-score').html(player.longestSequence);
+        }
+    }
+
+}
+
+
+
+
 let comp = {
     compArray: [],
     isTurn: true
@@ -11,6 +27,7 @@ let player = {
     checkLongestSequence: function(){
         if(this.playerArray.length > this.longestSequence){
             this.longestSequence = this.playerArray.length;
+            $('#high-score').html(player.longestSequence);
         }
     },
 }
@@ -24,7 +41,8 @@ let turnLength = (duration * 1.2) * (comp.compArray.length + 1);
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomValue(max) {
     return Math.floor(Math.random() * Math.floor(max));
-}    
+}
+
 //adds new value to compArray
 function addCompArrayValue(){
     comp.compArray.push(getRandomValue(staticArray.length));
@@ -111,7 +129,7 @@ function flipTurn(){
         switchTurns();
         setTimeout(function(){
             compTurn();
-        },duration)
+        },duration * 1.2)
     }
 }
 
@@ -121,9 +139,9 @@ function playerTurn(){
             if(player.isTurn === true){
                 addPlayerArrayValue(this); 
                 lightUpButton(player.playerArray[player.playerArray.length-1]);
-                //playAudio(a0);
                 playAudio(player.playerArray[player.playerArray.length-1]);
-                //checkValues(player.playerArray.length - 1);  
+                player.checkLongestSequence();
+                checkValues(player.playerArray.length - 1);  
             }    
         })
     } 
@@ -137,7 +155,10 @@ function playGame(){
 
 
 $(function(){
-    playGame();
+    let comp = new createPlayer(true);
+    let player = new createPlayer(false);
+    console.log(comp);
+    console.log(player)
 })
 
 
