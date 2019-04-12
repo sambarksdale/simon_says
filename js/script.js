@@ -1,5 +1,5 @@
 function createPlayer(isTurn){
-    this.array = [0,1,2,3,1,1,2,2,3,3,3];
+    this.array = [];
     this.isTurn = isTurn;
     this.longestSequence = 0;
     this. checkLongestSequence = function(){
@@ -12,7 +12,7 @@ function createPlayer(isTurn){
 }
 
 let comp = {
-    compArray: [0,1,2,3,1,1,2,2,3,3,3],
+    compArray: [],
     isTurn: true
     
 }
@@ -35,7 +35,7 @@ let durationFloor = 350;
 let turnLength = 0;
 
 
-//gets random number
+//gets random value from staticArray
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomValue(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -82,8 +82,7 @@ function lightUpButton(id){
 
 //triggers audio
 function playAudio(id){
-    let audio = document.getElementById('a' + id);
-    let audioClone = audio.cloneNode(true);
+    let audioClone = document.getElementById('a' + id).cloneNode(true);
     audioClone.play()      
 }
 
