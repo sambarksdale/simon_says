@@ -46,6 +46,13 @@ function addCompArrayValue(){
     comp.compArray.push(getRandomValue(staticArray.length));
 }
 
+//controlls speed
+function speedUp(){
+    if(duration !== 350){
+        duration = duration - 50;
+    }
+}
+
 //adds new value to playerArray
 function addPlayerArrayValue(button){
     player.playerArray.push(Number(button.id.substring(button.id.length - 1)));
@@ -96,6 +103,7 @@ function compTurn(){
     console.log('comp turn start');
     //adds new value to compArray
     addCompArrayValue()
+    speedUp();
     console.log('duration = ' + duration);
     console.log('comp array length = ' + comp.compArray.length);  
     turnLength = duration * comp.compArray.length;
@@ -130,7 +138,6 @@ function endPLayerTurn(){
 
 function playerTurn(){
     console.log('player turn start')
-    if(player.isTurn === true){
         $('.button').off().on('click', function(){
             if(player.isTurn === true){
                 addPlayerArrayValue(this); 
@@ -140,7 +147,6 @@ function playerTurn(){
                 checkValues(player.playerArray.length - 1);  
             }    
         })
-    } 
 }
 
 function playGame(){
