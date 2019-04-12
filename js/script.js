@@ -3,28 +3,27 @@ function createPlayer(isTurn){
     this.isTurn = isTurn;
     this.longestSequence = 0;
     this. checkLongestSequence = function(){
-        if(this.playerArray.length > this.longestSequence){
-            this.longestSequence = this.playerArray.length;
-            $('#high-score').html(player.longestSequence);
+        if(this.array.length > this.longestSequence){
+            this.longestSequence = this.array.length;
         }
     }
 
 }
 //creates comp object
 let comp = {
-    compArray: [],
+    array: [],
     isTurn: true
     
 }
 
 //creates player object
 let player = {
-    playerArray: [],
+    array: [],
     isTurn: false,
     longestSequence: 0,
     checkLongestSequence: function(){
-        if(this.playerArray.length > this.longestSequence){
-            this.longestSequence = this.playerArray.length;
+        if(this.array.length > this.longestSequence){
+            this.longestSequence = this.array.length;
             $('#high-score').html(player.longestSequence);
         }
     },
@@ -42,14 +41,14 @@ function getRandomValue(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-//adds new value to compArray
+//adds new value to comp array
 function addCompArrayValue(){
-    comp.compArray.push(getRandomValue(staticArray.length));
+    comp.array.push(getRandomValue(staticArray.length));
 }
 
 //sets turnLength
 function setTurnLength(){
-    turnLength = duration * comp.compArray.length;
+    turnLength = duration * comp.array.length;
 }
 
 //controlls speed
@@ -59,14 +58,14 @@ function speedUp(){
     }
 }
 
-//adds new value to playerArray
+//adds new value to player array
 function addPlayerArrayValue(button){
-    player.playerArray.push(Number(button.id.substring(button.id.length - 1)));
+    player.array.push(Number(button.id.substring(button.id.length - 1)));
 }
 
-//checks playerArray against compArray
+//checks player array against comp array
 function checkValues(index){
-    if(player.playerArray[index] !== comp.compArray[index]){
+    if(player.array[index] !== comp.array[index]){
         setTimeout(function(){
             alert('you lose');
             reset();
@@ -78,9 +77,9 @@ function checkValues(index){
 
 //resets arrays, and turns
 function reset(){
-    comp.compArray = [];
+    comp.array = [];
     comp.isTurn = true;
-    player.playerArray = [];
+    player.array = [];
     player.isTurn = false;
     duration = 800;
     playGame();
@@ -108,8 +107,8 @@ function switchTurns(){
 
 //ends player's turn
 function endPLayerTurn(){
-    if(player.playerArray.length === comp.compArray.length){
-        player.playerArray = []
+    if(player.array.length === comp.array.length){
+        player.array = []
         switchTurns();
         setTimeout(function(){
             compTurn();
@@ -125,10 +124,10 @@ function compTurn(){
     setTurnLength();
 
     //iterates through comArray, lights up button, plays sound
-    for(let i = 0; i < comp.compArray.length; i++){
+    for(let i = 0; i < comp.array.length; i++){
         setTimeout(function(){
-            lightUpButton(comp.compArray[i]);
-            playAudio(comp.compArray[i]);
+            lightUpButton(comp.array[i]);
+            playAudio(comp.array[i]);
         },i * (duration * 1.2))
         
     }
@@ -144,10 +143,10 @@ function playerTurn(){
         $('.button').off().on('click', function(){
             if(player.isTurn === true){
                 addPlayerArrayValue(this); 
-                lightUpButton(player.playerArray[player.playerArray.length-1]);
-                playAudio(player.playerArray[player.playerArray.length-1]);
+                lightUpButton(player.array[player.array.length-1]);
+                playAudio(player.array[player.array.length-1]);
                 player.checkLongestSequence();
-                checkValues(player.playerArray.length - 1);  
+                checkValues(player.array.length - 1);  
             }    
         })
 }
