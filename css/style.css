@@ -35,13 +35,13 @@
     background: red;
     color: white;
     width: 60px;
-    height: 30px;
-    margin-top: 150px;
-    margin-left: 150px;
+    height: 20px;
+    margin-top: 170px;
+    margin-left: 180px;
     border-radius: 5%;
     border: none;
     text-align: center;
-    line-height: 30px;
+    line-height: 20px;
 }
 #start:hover {
     cursor: pointer;
@@ -51,7 +51,7 @@
     position: absolute;
     width: 50px;
     height: 50px;
-    margin-top: 150px;
+    margin-top: 170px;
     margin-left: 50px;
     background: rgb(192, 192, 147);
     border-radius: 5%;
@@ -127,6 +127,25 @@
     margin-left: 70px;
 }
 
+#player-turn {
+    position: absolute;
+    border-radius: 50%;
+    background: green;
+    height: 20px;
+    width: 20px;
+    margin-top: 200px;
+    margin-left: 180px;
+}
+
+#comp-turn {
+    position: absolute;
+    border-radius: 50%;
+    background: red;
+    height: 20px;
+    width: 20px;
+    margin-top: 200px;
+    margin-left: 220px;
+}
 
 
 
