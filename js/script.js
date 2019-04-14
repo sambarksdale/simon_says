@@ -1,4 +1,4 @@
-function createPlayer(isTurn){
+/*function createPlayer(isTurn){
     this.array = [];
     this.isTurn = isTurn;
     this.longestSequence = 0;
@@ -8,7 +8,7 @@ function createPlayer(isTurn){
         }
     }
 
-}
+}*/
 //creates comp object
 let comp = {
     array: [],
@@ -120,6 +120,7 @@ function endPLayerTurn(){
 function compTurn(){
 
     addCompArrayValue();
+    console.log(comp.array);
     speedUp();
     setTurnLength();
 
