@@ -67,7 +67,8 @@ function addPlayerArrayValue(button){
 function checkValues(index){
     if(player.array[index] !== comp.array[index]){
         setTimeout(function(){
-            alert('you lose');
+            $('.modal').show();
+            //alert('you lose');
             reset();
         },duration * 1.2)
     }else {
@@ -168,6 +169,7 @@ function playerTurn(){
 
 function playGame(){
     $('#start').on('click',function(){
+        $('.modal').hide();
         compTurn();
         $('#start').off()
     })  

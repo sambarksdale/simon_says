@@ -112,15 +112,20 @@
 }
 
 .modal {
-    display: block;
+    display: none;
     position: absolute;
     z-index: 2;
     margin-top: 150px;
     margin-left: 200px;
+    height: 120px;
+    width: 400px;
     color: rgb(199, 9, 9);
     background: white;
     border: 5px solid rgb(199, 9, 9);
     font-size: 100px;
+    text-align: center;
+    line-height: 120px;
+    padding: 5px;
 }
 
 .game-name {
