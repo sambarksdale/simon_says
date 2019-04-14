@@ -34,29 +34,28 @@
     position: absolute;
     background: red;
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 30px;
     margin-top: 150px;
-    margin-left: 262.5px;
-    border-radius: 50%;
+    margin-left: 150px;
+    border-radius: 5%;
     border: none;
-    font-size: 30px;
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
 }
 
 #high-score {
     position: absolute;
     width: 50px;
     height: 50px;
-    margin-top: 210px;
+    margin-top: 150px;
     margin-left: 75px;
     background: rgb(192, 192, 147);
     border-radius: 5%;
     font-family: 'digital';
     font-size: 50px;
     text-align: center;
-    line-height: 50px;
+    line-height: 60px;
 }
 
 .button {
@@ -115,6 +114,10 @@
     z-index: 2;
     margin-top: 400px;
     color: white;
+}
+
+.game-name {
+    
 }
 
 
