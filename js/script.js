@@ -116,8 +116,21 @@ function endPLayerTurn(){
     }
 }
 
+//player turn indicator
+function turnIndicator(){
+    if(comp.isTurn === true){
+        $('#comp-turn').attr('class','is-on');
+        $('#player-turn').attr('class','is-off');
+    } else {
+        $('#comp-turn').attr('class','is-off');
+        $('#player-turn').attr('class','is-on');
+    }
+}
+
 
 function compTurn(){
+
+    turnIndicator();
 
     addCompArrayValue();
     console.log(comp.array);
@@ -141,15 +154,16 @@ function compTurn(){
 }
 
 function playerTurn(){
-        $('.button').off().on('click', function(){
-            if(player.isTurn === true){
-                addPlayerArrayValue(this); 
-                lightUpButton(player.array[player.array.length-1]);
-                playAudio(player.array[player.array.length-1]);
-                player.checkLongestSequence();
-                checkValues(player.array.length - 1);  
-            }    
-        })
+    turnIndicator();
+    $('.button').off().on('click', function(){
+        if(player.isTurn === true){
+            addPlayerArrayValue(this); 
+            lightUpButton(player.array[player.array.length-1]);
+            playAudio(player.array[player.array.length-1]);
+            player.checkLongestSequence();
+            checkValues(player.array.length - 1);  
+        }    
+    })
 }
 
 function playGame(){

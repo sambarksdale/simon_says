@@ -129,22 +129,36 @@
 
 #player-turn {
     position: absolute;
-    border-radius: 50%;
-    background: green;
+    border-radius: 50%;  
     height: 20px;
     width: 20px;
     margin-top: 200px;
     margin-left: 180px;
 }
 
+#player-turn.is-on{
+    background: radial-gradient(rgba(255,255,255), rgb(5, 252, 5));
+}
+
+#player-turn.is-off{
+    background: green;
+}
+
 #comp-turn {
     position: absolute;
     border-radius: 50%;
-    background: red;
     height: 20px;
     width: 20px;
     margin-top: 200px;
     margin-left: 220px;
+}
+
+#comp-turn.is-on {
+    background: radial-gradient(white, rgb(255, 1, 1));
+}
+
+#comp-turn.is-off {
+    background: red;
 }
 
 
