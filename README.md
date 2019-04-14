@@ -5,11 +5,11 @@ A simon says game that allows one player to compete with the computer in a memor
 ![No Image Found](images/whitebording_1.jpg)
 ![No Image Found](images/whitebording_2.jpg)
 
-##Wireframe
+## Wireframe
 ![No Image Found](images/wireframe.jpg)
 
-##Trello Board
+## Trello Board
 <https://trello.com/b/blN9LcMV/simonsays>
 
-##Game Link
+## Game Link
 <https://sambarksdale.github.io/simon_says/>
