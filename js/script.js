@@ -1,19 +1,7 @@
-/*function createPlayer(isTurn){
-    this.array = [];
-    this.isTurn = isTurn;
-    this.longestSequence = 0;
-    this. checkLongestSequence = function(){
-        if(this.array.length > this.longestSequence){
-            this.longestSequence = this.array.length;
-        }
-    }
-
-}*/
 //creates comp object
 let comp = {
     array: [],
     isTurn: true
-    
 }
 
 //creates player object
@@ -134,7 +122,7 @@ function compTurn(){
     turnIndicator();
 
     addCompArrayValue();
-    console.log(comp.array);
+
     speedUp();
     setTurnLength();
 
